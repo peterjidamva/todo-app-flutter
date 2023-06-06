@@ -25,13 +25,6 @@ class _TodoTileState extends State<TodoTile> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10), // Add border radius
       ),
-      action: SnackBarAction(
-        label: 'Close',
-        textColor: Colors.white, // Customize the action button text color
-        onPressed: () {
-          ScaffoldMessenger.of(context).hideCurrentSnackBar();
-        },
-      ),
     );
 
     final provider = Provider.of<TodoProvider>(context);
@@ -71,6 +64,7 @@ class _TodoTileState extends State<TodoTile> {
                   children: [
                     Text(
                       todo.title,
+                      overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodyText1,
                     ),
                     const Spacer(),
@@ -97,9 +91,7 @@ class _TodoTileState extends State<TodoTile> {
                       provider.updateTodoCompletionStatus(
                           todo, !todo.completed);
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                      setState(() {
-                        
-                      });
+                      setState(() {});
                     },
                   )),
             ],
