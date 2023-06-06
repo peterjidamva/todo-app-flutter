@@ -9,49 +9,61 @@ class TodoProvider with ChangeNotifier {
 
   Future<void> fetchTodos() async {
     try {
-      // Make API call to fetch todos
       List<Todo> fetchedTodos = await TodoApi.fetchTodos();
       _todos = fetchedTodos;
       notifyListeners();
     } catch (error) {
-      // Handle error
-      print('Error fetching  to fetch todos: $error');
+      if (kDebugMode) {
+        print('Error fetching  to fetch todos: $error');
+      }
+    }
+  }
+
+  Future<void> editTodo(Todo todo) async {
+    try {
+      String addedTodo = await TodoApi.editTodo(todo);
+      if (addedTodo == "200") {
+        notifyListeners();
+      }
+    } catch (error) {
+      if (kDebugMode) {
+        print('Error adding todo: $error');
+      }
     }
   }
 
   Future<void> addTodo(Todo todo) async {
     try {
-      // Make API call to add todo
-      Todo addedTodo = await TodoApi.addTodo(todo);
-      _todos.add(addedTodo);
+     await TodoApi.addTodo(todo);
       notifyListeners();
     } catch (error) {
-      // Handle error
-      print('Error adding todo: $error');
+      if (kDebugMode) {
+        print('Error adding todo: $error');
+      }
     }
   }
 
   Future<void> updateTodoCompletionStatus(Todo todo, bool completed) async {
     try {
-      // Make API call to update todo completion status
-      await TodoApi.updateTodoCompletionStatus(todo.id, completed);
       todo.completed = completed;
+      todo.lastUpdated = DateTime.now().toString();
+      await TodoApi.updateTodoCompletionStatus(todo, completed);
       notifyListeners();
     } catch (error) {
-      // Handle error
-      print('Error updating todo completion status: $error');
+      if (kDebugMode) {
+        print('Error updating todo completion status: $error');
+      }
     }
   }
 
   Future<void> deleteTodo(Todo todo) async {
     try {
-      // Make API call to delete todo
       await TodoApi.deleteTodo(todo.id);
-      _todos.remove(todo);
       notifyListeners();
     } catch (error) {
-      // Handle error
-      print('Error deleting todo: $error');
+      if (kDebugMode) {
+        print('Error deleting todo: $error');
+      }
     }
   }
 }
