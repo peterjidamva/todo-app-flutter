@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/api/todo_api.dart';
-import 'package:todo_app/components/add_todo_modal_bottom_sheet.dart';
+import 'package:todo_app/components/add_todo_modal.dart';
 import 'package:todo_app/components/loading.dart';
 import 'package:todo_app/components/search_bar.dart';
-import 'package:todo_app/components/todo_tile.dart';
+import 'package:todo_app/components/todo_card.dart';
 import 'package:todo_app/models/todo.dart';
 
-class TodosPage extends StatefulWidget {
-  const TodosPage({super.key});
+class AllTaskPage extends StatefulWidget {
+  const AllTaskPage({super.key});
 
   @override
-  State<TodosPage> createState() => _TodosPageState();
+  State<AllTaskPage> createState() => _AllTaskPageState();
 }
 
-class _TodosPageState extends State<TodosPage> {
+class _AllTaskPageState extends State<AllTaskPage> {
   List<Todo> todos = [];
 
   bool isLoading = true;
@@ -28,12 +28,13 @@ class _TodosPageState extends State<TodosPage> {
       List<Todo> fetchedTodos = await TodoApi.fetchTodos();
       setState(() {
         todos = fetchedTodos;
-        isLoading = false; // Set isLoading to false once data fetching is finished
+        isLoading =
+            false; // Set isLoading to false once data fetching is finished
       });
     } catch (error) {
       print('Error fetching todos: $error');
       if (mounted) {
-          // Prevent calling setState if widget is disposed
+        // Prevent calling setState if widget is disposed
         setState(() {
           isLoading = false; // Set isLoading to false in case of an error
         });
@@ -53,7 +54,7 @@ class _TodosPageState extends State<TodosPage> {
         onPressed: () => showModalBottomSheet(
           context: context,
           builder: (BuildContext context) =>
-              Wrap(children: const [AddTaskModalBottomSheet()]),
+              Wrap(children: const [AddTaskModel()]),
         ),
         child: const Icon(
           Icons.add,
@@ -80,7 +81,7 @@ class _TodosPageState extends State<TodosPage> {
                           itemCount: todos.length,
                           itemBuilder: (context, index) => Column(
                                 children: [
-                                  TodoTile(todo: todos[index]),
+                                  TodoCard(todo: todos[index]),
                                   const Divider(),
                                 ],
                               )),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/components/todo_tile.dart';
+import 'package:todo_app/components/todo_card.dart';
 import 'package:todo_app/models/todo.dart';
 
 class SearchResultsPage extends StatelessWidget {
@@ -49,7 +49,7 @@ class SearchResultsPage extends StatelessWidget {
                 child: ListView.builder(
                   itemCount: searchResults.length,
                   itemBuilder: (context, index) =>
-                      TodoTile(todo: searchResults[index]),
+                      TodoCard(todo: searchResults[index]),
                 ),
               ),
             )

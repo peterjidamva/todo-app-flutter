@@ -10,8 +10,8 @@ class LoadingScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Center(
         child: SpinKitChasingDots(
-          color: Colors.cyan, // Customize the color of the animation
-          size: 70.0, // Customize the size of the animation
+          color: Colors.cyan, 
+          size: 70.0, 
         ),
       ),
     );

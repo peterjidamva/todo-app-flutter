@@ -3,16 +3,16 @@ import 'package:provider/provider.dart';
 import 'package:todo_app/models/todo.dart';
 import 'package:todo_app/providers/todo_provider.dart';
 
-class EditTaskBottomSheet extends StatefulWidget {
+class EditTaskModal extends StatefulWidget {
   final Todo todo;
 
-  const EditTaskBottomSheet({Key? key, required this.todo}) : super(key: key);
+  const EditTaskModal({Key? key, required this.todo}) : super(key: key);
 
   @override
-  State<EditTaskBottomSheet> createState() => _EditTaskBottomSheetState();
+  State<EditTaskModal> createState() => _EditTaskModalState();
 }
 
-class _EditTaskBottomSheetState extends State<EditTaskBottomSheet> {
+class _EditTaskModalState extends State<EditTaskModal> {
   late TextEditingController titleController;
   late TextEditingController descriptionController;
   late TodoProvider todoProvider;

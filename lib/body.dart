@@ -29,7 +29,7 @@ class Body extends StatelessWidget {
           ],
         ),
       ),
-      body: const TabBarView(children: [TodosPage(), CompletedTodosPage()]),
+      body: const TabBarView(children: [AllTaskPage(), CompletedTodosPage()]),
     );
   }
 }

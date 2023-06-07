@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_app/components/edit_task_bottom_sheet.dart';
+import 'package:todo_app/components/edit_task_component.dart';
 import 'package:todo_app/functions/functions.dart';
 import 'package:todo_app/models/todo.dart';
 import 'package:todo_app/providers/todo_provider.dart';
@@ -89,7 +89,7 @@ class TodoPage extends StatelessWidget {
                   showModalBottomSheet(
                     context: context,
                     builder: (BuildContext context) => Wrap(children: [
-                      EditTaskBottomSheet(
+                      EditTaskModal(
                         todo: todo,
                       )
                     ]),

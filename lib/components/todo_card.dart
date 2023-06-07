@@ -5,25 +5,25 @@ import 'package:todo_app/models/todo.dart';
 import 'package:todo_app/pages/todo.dart';
 import 'package:todo_app/providers/todo_provider.dart';
 
-class TodoTile extends StatefulWidget {
+class TodoCard extends StatefulWidget {
   final Todo todo;
-  const TodoTile({super.key, required this.todo});
+  const TodoCard({super.key, required this.todo});
 
   @override
-  State<TodoTile> createState() => _TodoTileState();
+  State<TodoCard> createState() => _TodoCardState();
 }
 
-class _TodoTileState extends State<TodoTile> {
+class _TodoCardState extends State<TodoCard> {
   @override
   Widget build(BuildContext context) {
     final snackBar = SnackBar(
       content: const Text('status updated successfully!'),
       duration: const Duration(seconds: 2),
-      backgroundColor: Colors.green, // Customize the background color
-      elevation: 6, // Customize the elevation
-      behavior: SnackBarBehavior.floating, // Make it floating
+      backgroundColor: Colors.green,
+      elevation: 6,
+      behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10), // Add border radius
+        borderRadius: BorderRadius.circular(10),
       ),
     );
 

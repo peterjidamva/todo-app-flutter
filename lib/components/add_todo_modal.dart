@@ -4,25 +4,21 @@ import 'package:todo_app/models/todo.dart';
 import 'package:todo_app/providers/todo_provider.dart';
 import 'package:uuid/uuid.dart';
 
-class AddTaskModalBottomSheet extends StatefulWidget {
-  const AddTaskModalBottomSheet({super.key});
+class AddTaskModel extends StatefulWidget {
+  const AddTaskModel({super.key});
 
   @override
-  State<AddTaskModalBottomSheet> createState() =>
-      _AddTaskModalBottomSheetState();
+  State<AddTaskModel> createState() =>
+      _AddTaskModelState();
 }
 
-class _AddTaskModalBottomSheetState extends State<AddTaskModalBottomSheet> {
+class _AddTaskModelState extends State<AddTaskModel> {
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<TodoProvider>(context);
-    ThemeData themeData = Theme.of(context).copyWith(
-      colorScheme: ColorScheme.light(primary: Theme.of(context).primaryColor),
-    );
-
+   
     final snackBar = SnackBar(
       content: const Text('Todo added successfully!'),
       duration: const Duration(seconds: 2),
@@ -34,7 +30,7 @@ class _AddTaskModalBottomSheetState extends State<AddTaskModalBottomSheet> {
       ),
     );
 
-    final FailedsnackBar = SnackBar(
+    final failedSnackBar = SnackBar(
       content: const Text('Failed!'),
       duration: const Duration(seconds: 2),
       backgroundColor: Colors.red,
@@ -94,7 +90,7 @@ class _AddTaskModalBottomSheetState extends State<AddTaskModalBottomSheet> {
                 if (response == 201) {
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 } else {
-                  ScaffoldMessenger.of(context).showSnackBar(FailedsnackBar);
+                  ScaffoldMessenger.of(context).showSnackBar(failedSnackBar);
                 }
 
     

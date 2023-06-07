@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/api/todo_api.dart';
 import 'package:todo_app/components/loading.dart';
-import 'package:todo_app/components/todo_tile.dart';
+import 'package:todo_app/components/todo_card.dart';
 import 'package:todo_app/models/todo.dart';
 
 class CompletedTodosPage extends StatefulWidget {
@@ -63,7 +63,7 @@ class _CompletedTodosPageState extends State<CompletedTodosPage> {
                     Expanded(
                       child: ListView.builder(
                         itemCount: completedTodos.length,
-                        itemBuilder: (context, index) => TodoTile(
+                        itemBuilder: (context, index) => TodoCard(
                           todo: completedTodos[index],
                         ),
                       ),
