@@ -99,6 +99,6 @@ To run the Todo App on your local machine, follow these steps:
 4. Install the required dependencies: ```flutter pub get```
 
 
-5. Run the app:
+5. Run the app: ```flutter run```
 
 
