@@ -12,6 +12,58 @@ The Todo App offers the following features:
 - Change the status of a Todo item (completed/incomplete).
 - Delete a Todo item from the list.
 
+
+## Screenshots
+
+
+
+View a list of all available tasks
+
+
+![All tasks Image](screenshots/all.png)
+
+
+
+
+
+Click to view Description , When was a task created and when it was updated 
+
+![description](screenshots/viewtodo-longdesc.png)
+
+
+
+
+
+
+View a list of completed tasks
+
+![completed](screenshots/completed.png)
+
+
+
+
+
+Edit Task Title and Task description 
+
+![edit](screenshots/edit.png)
+
+
+
+You can search for a task 
+(Example here a search title was new and this is the result)
+
+![search](screenshots/search1.png)
+
+
+FULL DEMO IS HERE 
+
+![Demo](screenshots/teaser.mov)
+
+
+
+
+
+
 ## Technology Used
 
 The Todo App is implemented using Flutter, a popular framework for building multi-platform applications. Flutter offers a rich set of tools and widgets for creating beautiful, responsive user interfaces. The app leverages Flutter's hot-reload feature for fast development and testing.
