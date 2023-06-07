@@ -76,7 +76,7 @@ You can search for a task
 
 FULL DEMO IS HERE 
 
-[![Demo]()](screenshots/teaser-vid.mp4)
+[(https://github.com/peterjidamva/todo-app-flutter/blob/main/screenshots/teaser-vid.mp4)]
 
 
 WEB VIEW OF THE PROJECT IS LIKE THIS 
