@@ -13,7 +13,7 @@ The Todo App offers the following features:
 - Delete a Todo item from the list.
 
 
-## Screenshots
+## Screenshots For A Mobile
 
 
 
@@ -65,25 +65,17 @@ You can search for a task
 
 FULL DEMO IS HERE 
 
-<video width="320" height="240" controls>
-  <source src="screenshots/teaser-vid.mov" type="video/mov">
-  Your browser does not support the video tag.
-</video>
-
-
-
-
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ITSRB3jyj1Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 
 ## Technology Used
 
-The Todo App is implemented using Flutter, a popular framework for building multi-platform applications. Flutter offers a rich set of tools and widgets for creating beautiful, responsive user interfaces. The app leverages Flutter's hot-reload feature for fast development and testing.
+The Todo App is implemented using Flutter, a popular framework for building multi-platform applications. Flutter offers a rich set of tools and widgets for creating beautiful, responsive user interfaces.
 
 ### State Management
 
-The app uses the Provider package for state management. Provider provides an easy and efficient way to manage application state, allowing seamless updates to the UI when data changes. It follows the "single source of truth" principle and enables efficient communication between different parts of the app.
+The app uses the Provider package for state management. Provider provides an easy and efficient way to manage application state, allowing seamless updates to the UI when data changes. 
 
 ### Cross-Platform Compatibility
 
@@ -99,12 +91,12 @@ To run the Todo App on your local machine, follow these steps:
 
 1. Ensure you have Flutter installed. Refer to the official Flutter documentation for installation instructions: [Flutter Installation Guide](https://flutter.dev/docs/get-started/install)
 
-2. Clone this repository to your local machine:
+2. Clone this repository to your local machine: ```https://github.com/peterjidamva/todo-app-flutter.git```
 
-3. Navigate to the project directory:
+3. Navigate to the project directory: ```cd todo_app```
 
 
-4. Install the required dependencies:
+4. Install the required dependencies: ```flutter pub get```
 
 
 5. Run the app:
