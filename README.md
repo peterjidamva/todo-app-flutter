@@ -19,25 +19,26 @@ The Todo App offers the following features:
 
 View a list of all available tasks
 
-
-![All tasks Image](screenshots/all.png)
-
+<img src="screenshots/all.png" alt="Alt Text" width="100">
 
 
-
+<br>
 
 Click to view Description , When was a task created and when it was updated 
 
-![description](screenshots/viewtodo-longdesc.png)
+
+<img src="screenshots/viewtodo-longdesc.png" alt="Alt Text" width="100">
 
 
-
+<br>
 
 
 
 View a list of completed tasks
 
-![completed](screenshots/completed.png)
+<br>
+<img src="screenshots/completed.png" alt="Alt Text" width="100">
+
 
 
 
@@ -45,19 +46,31 @@ View a list of completed tasks
 
 Edit Task Title and Task description 
 
-![edit](screenshots/edit.png)
+
+<img src="screenshots/edit.png" alt="Alt Text" width="100">
 
 
+
+<br>
 
 You can search for a task 
 (Example here a search title was new and this is the result)
 
-![search](screenshots/search1.png)
 
+<img src="screenshots/search1.png" alt="Alt Text" width="100">
+
+
+
+<br>
 
 FULL DEMO IS HERE 
 
-![Demo](screenshots/teaser.mov)
+<video width="320" height="240" controls>
+  <source src="screenshots/teaser.mov" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
 
 
 
