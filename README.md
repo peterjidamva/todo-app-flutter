@@ -19,8 +19,9 @@ The Todo App offers the following features:
 
 View a list of all available tasks
 
-<img src="screenshots/all.png" alt="Alt Text" width="100">
+<img src="screenshots/all.png" alt="Alt Text" width="100"> 
 
+<br>
 
 <br>
 
@@ -40,15 +41,27 @@ View a list of completed tasks
 <img src="screenshots/completed.png" alt="Alt Text" width="100">
 
 
-
-
-
+<br>
 
 Edit Task Title and Task description 
 
 
 <img src="screenshots/edit.png" alt="Alt Text" width="100">
 
+
+<br>
+
+
+You can delete Task
+
+
+<img src="screenshots/delete-confirm.png" alt="Alt Text" width="100">
+
+<br>
+
+Get notified on task update , Adding or delete
+
+<img src="screenshots/snackbar.png" alt="Alt Text" width="100">
 
 
 <br>
@@ -57,15 +70,22 @@ You can search for a task
 (Example here a search title was new and this is the result)
 
 
-<img src="screenshots/search1.png" alt="Alt Text" width="100">
-
-
+<img src="screenshots/search1.png" alt="Alt Text" width="100">     <img src="screenshots/no-item-sea.png" alt="Alt Text" width="100">
 
 <br>
 
 FULL DEMO IS HERE 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ITSRB3jyj1Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+WEB VIEW OF THE PROJECT IS LIKE THIS 
+
+
+IN WEB  IT LOOKS LIKE THIS 
+
+<img src="screenshots/web.png" alt="Alt Text" width="200"> <img src="screenshots/web2.png" alt="Alt Text" width="200"> <img src="screenshots/web4.png" alt="Alt Text" width="200"> <img src="screenshots/web5.png" alt="Alt Text" width="200"> <img src="screenshots/web6.png" alt="Alt Text" width="200">
+
 
 
 
