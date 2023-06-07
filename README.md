@@ -66,7 +66,7 @@ You can search for a task
 FULL DEMO IS HERE 
 
 <video width="320" height="240" controls>
-  <source src="screenshots/teaser.mov" type="video/mp4">
+  <source src="screenshots/teaser.mov" type="video/mov">
   Your browser does not support the video tag.
 </video>
 
