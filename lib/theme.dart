@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-ThemeData lightTheme = ThemeData(
+ThemeData defaultTheme = ThemeData(
   primaryColor:  Colors.cyan,
   iconTheme: const IconThemeData(
     color: Colors.cyan,
