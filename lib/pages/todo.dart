@@ -28,6 +28,17 @@ class TodoPage extends StatelessWidget {
       ),
     );
 
+    final failedSnackbar = SnackBar(
+      content: const Text('Failed!'),
+      duration: const Duration(seconds: 2),
+      backgroundColor: Colors.red,
+      elevation: 6,
+      behavior: SnackBarBehavior.floating,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+    );
+
     Future<void> confirmDeletion() async {
       return showDialog<void>(
         context: context,
@@ -37,11 +48,15 @@ class TodoPage extends StatelessWidget {
           content: const Text("Are you sure you want to delete this task?"),
           actions: [
             InkWell(
-              onTap: () {
-                provider.deleteTodo(todo);
+              onTap: () async {
+                int response = await provider.deleteTodo(todo);
                 closePage();
+                if (response == 200) {
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(failedSnackbar);
+                }
                 closePage();
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
               },
               child: const Text("Yes"),
             ),

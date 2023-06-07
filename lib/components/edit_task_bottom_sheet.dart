@@ -57,7 +57,7 @@ class _EditTaskBottomSheetState extends State<EditTaskBottomSheet> {
       ),
     );
 
-    final FailedsnackBar = SnackBar(
+    final failedSnackbar = SnackBar(
       content: const Text('Failed!'),
       duration: const Duration(seconds: 2),
       backgroundColor: Colors.red,
@@ -121,7 +121,7 @@ class _EditTaskBottomSheetState extends State<EditTaskBottomSheet> {
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     } else {
                       ScaffoldMessenger.of(context)
-                          .showSnackBar(FailedsnackBar);
+                          .showSnackBar(failedSnackbar);
                     }
 
                     Navigator.of(context).pop();
