@@ -32,7 +32,6 @@ class _TodoTileState extends State<TodoTile> {
 
     return GestureDetector(
       onTap: () {
-        // Perform navigation to the next widget
         Navigator.push(
           context,
           MaterialPageRoute(

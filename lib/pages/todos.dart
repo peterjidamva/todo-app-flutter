@@ -6,7 +6,6 @@ import 'package:todo_app/components/search_bar.dart';
 import 'package:todo_app/components/todo_tile.dart';
 import 'package:todo_app/models/todo.dart';
 
-
 class TodosPage extends StatefulWidget {
   const TodosPage({super.key});
 
@@ -29,18 +28,16 @@ class _TodosPageState extends State<TodosPage> {
       List<Todo> fetchedTodos = await TodoApi.fetchTodos();
       setState(() {
         todos = fetchedTodos;
-        isLoading =
-            false; // Set isLoading to false once data fetching is finished
+        isLoading = false; // Set isLoading to false once data fetching is finished
       });
     } catch (error) {
       print('Error fetching todos: $error');
       if (mounted) {
-        // Prevent calling setState if widget is disposed
+          // Prevent calling setState if widget is disposed
         setState(() {
           isLoading = false; // Set isLoading to false in case of an error
         });
       }
-      
     }
   }
 
@@ -65,27 +62,29 @@ class _TodosPageState extends State<TodosPage> {
       body: Padding(
         padding: const EdgeInsets.all(30),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-           SearchBar(alltodos:todos,),
+          SearchBar(
+            alltodos: todos,
+          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(top: 30),
               child: isLoading
-                  ? LoadingScreen()
+                  ? const LoadingScreen()
                   : Visibility(
                       replacement: const Center(
                         child: Text("You have not added any tasks"),
                       ),
                       visible: todos.isNotEmpty,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: todos.length,
-                        itemBuilder: (context, index) => Column(
-                              children: [
-                                TodoTile(todo: todos[index]),
-                                const Divider(),
-                              ],
-                            )),
-                  ),
+                      child: ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: todos.length,
+                          itemBuilder: (context, index) => Column(
+                                children: [
+                                  TodoTile(todo: todos[index]),
+                                  const Divider(),
+                                ],
+                              )),
+                    ),
             ),
           ),
         ]),

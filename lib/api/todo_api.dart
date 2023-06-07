@@ -38,7 +38,7 @@ class TodoApi {
     }
   }
 
-  static Future<Todo> addTodo(Todo todo) async {
+  static Future<int> addTodo(Todo todo) async {
     try {
       final dio = Dio();
       dio.options.headers['Authorization'] = _basicAuthCredentials();
@@ -48,9 +48,8 @@ class TodoApi {
         data: todo.toJson(),
       );
 
-      if (response.statusCode == 200) {
-        final dynamic json = response.data;
-        return json;
+      if (response.data["httpStatusCode"] == 201) {
+        return response.data["httpStatusCode"];
       } else {
         throw Exception('Failed to add todo');
       }
@@ -59,7 +58,7 @@ class TodoApi {
     }
   }
 
-  static Future<String> editTodo(Todo todo) async {
+  static Future<int> editTodo(Todo todo) async {
     try {
       final dio = Dio();
       dio.options.headers['Authorization'] = _basicAuthCredentials();
@@ -69,21 +68,17 @@ class TodoApi {
         data: todo.toJson(),
       );
 
-
-      if (response.statusCode == 200) {
-       
-        Map<String, dynamic> jsonResponse = jsonDecode(response.data);
-
-        return jsonResponse['status'];
+      if (response.data["httpStatusCode"] == 200) {
+        return response.data["httpStatusCode"];
       } else {
-        throw Exception('Failed to add todo');
+        throw Exception('Failed to edit todo');
       }
     } catch (error) {
-      throw Exception('Error adding todo: $error');
+      throw Exception('Error editing todo: $error');
     }
   }
 
-  static Future<String> updateTodoCompletionStatus(
+  static Future<int> updateTodoCompletionStatus(
       Todo todo, bool completed) async {
     try {
       final dio = Dio();
@@ -94,34 +89,32 @@ class TodoApi {
         data: todo.toJson(),
       );
 
-      Map<String, dynamic> jsonResponse = jsonDecode(response.data);
-
-      if (response.statusCode != 200) {
+      if (response.data["httpStatusCode"] != 200) {
         throw Exception('Failed to update todo completion status');
       } else {
-        return jsonResponse['status'];
+        return response.data["httpStatusCode"];
       }
     } catch (error) {
       throw Exception('Error updating todo completion status: $error');
     }
   }
 
-  static Future<void> deleteTodo(String todoId) async {
+  static Future<int> deleteTodo(String todoId) async {
     try {
       final dio = Dio();
       dio.options.headers['Authorization'] = _basicAuthCredentials();
 
       final response = await dio.delete('$baseUrl/$todoId');
 
-      if (response.statusCode != 204) {
-        throw Exception('Failed to delete todo');
+      if (response.data["httpStatusCode"] != 200) {
+        throw Exception('Failed to update todo completion status');
+      } else {
+        return response.data["httpStatusCode"];
       }
     } catch (error) {
       throw Exception('Error deleting todo: $error');
     }
   }
-
-// ...
 
   static Future<List<Todo>> fetchCompletedTodos() async {
     try {

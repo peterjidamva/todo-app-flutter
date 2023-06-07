@@ -8,23 +8,22 @@ void main() {
   runApp(
     ChangeNotifierProvider(
       create: (context) => TodoProvider(),
-      builder: (context, child) => const TodoList(),
+      builder: (context, child) => const TodoApp(),
     ),
   );
 }
 
-class TodoList extends StatelessWidget {
-  const TodoList({super.key});
+class TodoApp extends StatelessWidget {
+  const TodoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: lightTheme,
-      home: const DefaultTabController(
-        length: 2,
-        child: Body(),
-      )
-    );
+        debugShowCheckedModeBanner: false,
+        theme: lightTheme,
+        home: const DefaultTabController(
+          length: 2,
+          child: Body(),
+        ));
   }
 }

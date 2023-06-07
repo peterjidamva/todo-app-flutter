@@ -6,7 +6,7 @@ import 'package:todo_app/providers/todo_provider.dart';
 class EditTaskBottomSheet extends StatefulWidget {
   final Todo todo;
 
-  EditTaskBottomSheet({Key? key, required this.todo}) : super(key: key);
+  const EditTaskBottomSheet({Key? key, required this.todo}) : super(key: key);
 
   @override
   State<EditTaskBottomSheet> createState() => _EditTaskBottomSheetState();
@@ -16,13 +16,15 @@ class _EditTaskBottomSheetState extends State<EditTaskBottomSheet> {
   late TextEditingController titleController;
   late TextEditingController descriptionController;
   late TodoProvider todoProvider;
-  final GlobalKey<ScaffoldMessengerState> _scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
+  final GlobalKey<ScaffoldMessengerState> _scaffoldMessengerKey =
+      GlobalKey<ScaffoldMessengerState>();
 
   @override
   void initState() {
     super.initState();
     titleController = TextEditingController(text: widget.todo.title);
-    descriptionController = TextEditingController(text: widget.todo.description);
+    descriptionController =
+        TextEditingController(text: widget.todo.description);
   }
 
   @override
@@ -47,9 +49,20 @@ class _EditTaskBottomSheetState extends State<EditTaskBottomSheet> {
     final snackBar = SnackBar(
       content: const Text('Todo edited successfully!'),
       duration: const Duration(seconds: 2),
-      backgroundColor: Colors.green, 
-      elevation: 6, 
-      behavior: SnackBarBehavior.floating, 
+      backgroundColor: Colors.green,
+      elevation: 6,
+      behavior: SnackBarBehavior.floating,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+    );
+
+    final FailedsnackBar = SnackBar(
+      content: const Text('Failed!'),
+      duration: const Duration(seconds: 2),
+      backgroundColor: Colors.red,
+      elevation: 6,
+      behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
@@ -85,7 +98,7 @@ class _EditTaskBottomSheetState extends State<EditTaskBottomSheet> {
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                onPressed: () {
+                onPressed: () async {
                   final String title = titleController.text.trim();
                   final String description = descriptionController.text.trim();
 
@@ -98,8 +111,19 @@ class _EditTaskBottomSheetState extends State<EditTaskBottomSheet> {
                       created: widget.todo.created,
                       lastUpdated: DateTime.now().toString(),
                     );
-                    todoProvider.editTodo(newTodo);
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+                    titleController.clear();
+                    descriptionController.clear();
+
+                    int response = await todoProvider.editTodo(newTodo);
+
+                    if (response == 200) {
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    } else {
+                      ScaffoldMessenger.of(context)
+                          .showSnackBar(FailedsnackBar);
+                    }
+
                     Navigator.of(context).pop();
                   }
                 },

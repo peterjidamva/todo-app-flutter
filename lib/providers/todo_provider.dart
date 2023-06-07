@@ -19,51 +19,78 @@ class TodoProvider with ChangeNotifier {
     }
   }
 
-  Future<void> editTodo(Todo todo) async {
+  Future<int> editTodo(Todo todo) async {
     try {
-      String addedTodo = await TodoApi.editTodo(todo);
-      if (addedTodo == "200") {
+      int addedTodo = await TodoApi.editTodo(todo);
+
+      if (addedTodo == 200) {
         notifyListeners();
+        return addedTodo;
+      } else {
+        return 0;
       }
     } catch (error) {
       if (kDebugMode) {
         print('Error adding todo: $error');
       }
+      return -1;
     }
   }
 
-  Future<void> addTodo(Todo todo) async {
+  Future<int> addTodo(Todo todo) async {
     try {
-     await TodoApi.addTodo(todo);
-      notifyListeners();
+      int addResponse = await TodoApi.addTodo(todo);
+
+      if (addResponse == 201) {
+        notifyListeners();
+        return addResponse;
+      } else {
+        return 0;
+      }
     } catch (error) {
       if (kDebugMode) {
         print('Error adding todo: $error');
       }
+      return -1;
     }
   }
 
-  Future<void> updateTodoCompletionStatus(Todo todo, bool completed) async {
+  Future<int> updateTodoCompletionStatus(Todo todo, bool completed) async {
     try {
       todo.completed = completed;
       todo.lastUpdated = DateTime.now().toString();
-      await TodoApi.updateTodoCompletionStatus(todo, completed);
-      notifyListeners();
+      int updateText =
+          await TodoApi.updateTodoCompletionStatus(todo, completed);
+
+      if (updateText == 200) {
+        notifyListeners();
+        return updateText;
+      } else {
+        return 0;
+      }
     } catch (error) {
       if (kDebugMode) {
         print('Error updating todo completion status: $error');
       }
+      return -1;
     }
   }
 
-  Future<void> deleteTodo(Todo todo) async {
+  Future<int> deleteTodo(Todo todo) async {
     try {
-      await TodoApi.deleteTodo(todo.id);
-      notifyListeners();
+      int deletedText = await TodoApi.deleteTodo(todo.id);
+
+      if (deletedText == 200) {
+        notifyListeners();
+        return deletedText;
+      } else {
+        return 0;
+      }
     } catch (error) {
       if (kDebugMode) {
         print('Error deleting todo: $error');
       }
+      return -1;
     }
   }
 }

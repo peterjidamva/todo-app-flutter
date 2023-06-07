@@ -2,15 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/models/todo.dart';
 import 'package:todo_app/pages/search_results.dart';
 
-class SearchBar extends StatefulWidget {
+class SearchBar extends StatelessWidget {
   List<Todo> alltodos = [];
    SearchBar({super.key,required this.alltodos});
 
-  @override
-  State<SearchBar> createState() => _SearchBarState();
-}
-
-class _SearchBarState extends State<SearchBar> {
   TextEditingController controller = TextEditingController();
 
   @override
@@ -29,7 +24,7 @@ class _SearchBarState extends State<SearchBar> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => SearchResultsPage(task: value.trim(),todos: widget.alltodos),
+                  builder: (context) => SearchResultsPage(task: value.trim(),todos: alltodos),
                 ),
               );
             },

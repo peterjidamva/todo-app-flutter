@@ -7,11 +7,11 @@ class Todo {
   String? lastUpdated;
 
   Todo({
-   required this.id,
-   required this.title,
-   required  this.description,
-   required this.completed,
-   required this.created,
+    required this.id,
+    required this.title,
+    required this.description,
+    required this.completed,
+    required this.created,
     this.lastUpdated,
   });
 

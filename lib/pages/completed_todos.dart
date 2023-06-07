@@ -46,7 +46,7 @@ class _CompletedTodosPageState extends State<CompletedTodosPage> {
         todos.where((todo) => todo.completed == true).toList();
 
     return isLoading
-        ? LoadingScreen()
+        ? const LoadingScreen()
         : Visibility(
             replacement: const Center(
               child: Text("No task is Complete"),

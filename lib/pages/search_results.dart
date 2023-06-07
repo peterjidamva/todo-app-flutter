@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/components/todo_tile.dart';
 import 'package:todo_app/models/todo.dart';
 
-
 class SearchResultsPage extends StatelessWidget {
   final String task;
   List<Todo> todos = [];
-   SearchResultsPage({super.key, required this.task, required this.todos});
+  SearchResultsPage({super.key, required this.task, required this.todos});
 
   @override
   Widget build(BuildContext context) {
-
     List<Todo> searchResults = todos
         .where((todo) => todo.title.toLowerCase().contains(task.toLowerCase()))
         .toList();
@@ -44,7 +42,7 @@ class SearchResultsPage extends StatelessWidget {
           children: [
             Visibility(
               replacement: const Center(
-                child: Text("0 items found"),
+                child: Text("No item found"),
               ),
               visible: searchResults.isNotEmpty,
               child: Expanded(

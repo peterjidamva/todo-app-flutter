@@ -26,12 +26,10 @@ class Body extends StatelessWidget {
             Tab(
               text: "Completed",
             ),
-          
           ],
         ),
       ),
-      body: const TabBarView(
-          children: [TodosPage(), CompletedTodosPage()]),
+      body: const TabBarView(children: [TodosPage(), CompletedTodosPage()]),
     );
   }
 }
